@@ -44,13 +44,17 @@ const lightboxImgs = document.querySelectorAll(".lightbox-img");
 const lightboxModal = document.getElementById("lightbox-modal");
 const lightboxModalImg = document.getElementById("lightbox-img");
 const closeLightbox = document.querySelector(".close-lightbox");
+const nextBtn = document.querySelector(".lightbox-next");
+const prevBtn = document.querySelector(".lightbox-prev");
 
-lightboxImgs.forEach(img => {
+lightboxImgs.forEach((img, index) => {
   img.addEventListener("click", () => {
+    currentIndex = index; // 🛠️ Store the correct index
     lightboxModal.style.display = "block";
     lightboxModalImg.src = img.src;
   });
 });
+
 
 closeLightbox.addEventListener("click", () => {
   lightboxModal.style.display = "none";
@@ -63,14 +67,14 @@ lightboxModal.addEventListener("click", (e) => {
   }
 });
 // Show next image
-nextBtn.addEventListener("click", () => {
+nextBtn.addEventListener("click", (e) => {
+  e.stopPropagation();
   currentIndex = (currentIndex + 1) % lightboxImgs.length;
-  lightboxModalImg.src = lightboxImgs[currentIndex].src;
+  lightboxModalImg.src = lightboxImgs[currentIndex].getAttribute("src");
 });
 
-// Show previous image
-prevBtn.addEventListener("click", () => {
+prevBtn.addEventListener("click", (e) => {
+  e.stopPropagation();
   currentIndex = (currentIndex - 1 + lightboxImgs.length) % lightboxImgs.length;
-  lightboxModalImg.src = lightboxImgs[currentIndex].src;
+  lightboxModalImg.src = lightboxImgs[currentIndex].getAttribute("src");
 });
-

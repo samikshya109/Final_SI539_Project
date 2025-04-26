@@ -5,13 +5,22 @@
     padding: 0;
   }
 
-  .nykaa-header img {
+  .nykaa-image img {
     width: 100%;
     max-width: 900px;
     height: auto;
     margin: 1rem auto;
     display: block;
     padding-top: 1rem;
+  }
+
+  .nykaa-header img {
+    width: 100%;
+    max-width: 900px;
+    height: auto;
+    margin: 1rem auto;
+    display: block;
+    padding-top: 5rem;
   }
   
   /* Body Styling */
@@ -38,7 +47,10 @@
   .logo {
     font-weight: bold;
     font-size: 1.2rem;
+    color: #333;
+    text-decoration: none;
   }
+  
   .nav-links {
     list-style: none;
     display: flex;
